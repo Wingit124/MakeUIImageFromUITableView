@@ -9,11 +9,45 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UICapturableTableView! {
+        didSet {
+            tableView.dataSource = self
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func tapSave(_ sender: Any) {
+        let images = tableView.generateContentImage()
+        for image in images {
+            //カメラロールに保存
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(didFinishSaving(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
+    }
+    
+    @objc private func didFinishSaving(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer) {
+        //保存状況をアラートで表示
+        if error != nil {
+            print("失敗")
+        } else {
+            print("成功")
+        }
+    }
+    
+}
 
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = indexPath.row.description
+        return cell
+    }
 }
 
