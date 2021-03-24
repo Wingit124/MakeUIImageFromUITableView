@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UICapturableTableView! {
+    @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
         }
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tapSave(_ sender: Any) {
-        guard let image = tableView.generateContentImage() else { return }
+        guard let image = tableView.contentImage else { return }
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(didFinishSaving(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
