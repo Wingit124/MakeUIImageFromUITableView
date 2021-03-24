@@ -14,7 +14,7 @@ class UICapturableTableView: UITableView {
     //断片的なスクリーンショットが入る配列
     private var captureImages: [UIImage] = []
     
-    func generateContentImage() -> [UIImage] {
+    func generateContentImage() -> UIImage? {
         
         originalOffsetY = self.contentOffset.y
         self.isScrollEnabled = false
@@ -25,7 +25,7 @@ class UICapturableTableView: UITableView {
         
         while (contentHeight > 0) {
             //viewを合成して画像を生成
-            UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
+            UIGraphicsBeginImageContextWithOptions(superview!.frame.size, false, 0)
             superview!.layer.render(in: UIGraphicsGetCurrentContext()!)
             let capturedImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
@@ -36,11 +36,22 @@ class UICapturableTableView: UITableView {
             contentHeight -= visibleHeight
             self.contentOffset.y += visibleHeight
         }
+        //画像を結合
+        UIGraphicsBeginImageContext(contentSize)
+        var y: CGFloat = 0
+        for image in captureImages {
+            print(y)
+            image.draw(at: CGPoint(x: 0, y: y))
+            y += visibleHeight
+        }
+        let mergedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
         
         self.isScrollEnabled = true
         self.contentOffset.y = originalOffsetY
         
-        return captureImages
+        return mergedImage
     }
     
 }
