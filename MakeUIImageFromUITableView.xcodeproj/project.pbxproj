@@ -15,6 +15,7 @@
 		A5B58835260748240072E7C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5B58833260748240072E7C2 /* LaunchScreen.storyboard */; };
 		A5B58845260B75BA0072E7C2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B58844260B75BA0072E7C2 /* UIView+Extension.swift */; };
 		A5B58848260B76720072E7C2 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B58847260B76720072E7C2 /* UITableView+Extension.swift */; };
+		A5B5884C260CD7F20072E7C2 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5884B260CD7F20072E7C2 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A5B58836260748240072E7C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5B58844260B75BA0072E7C2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A5B58847260B76720072E7C2 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		A5B5884B260CD7F20072E7C2 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		A5B58843260B75AD0072E7C2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A5B5884B260CD7F20072E7C2 /* UIImage+Extension.swift */,
 				A5B58844260B75BA0072E7C2 /* UIView+Extension.swift */,
 				A5B58847260B76720072E7C2 /* UITableView+Extension.swift */,
 			);
@@ -162,6 +165,7 @@
 				A5B5882D260748230072E7C2 /* ViewController.swift in Sources */,
 				A5B58829260748230072E7C2 /* AppDelegate.swift in Sources */,
 				A5B5882B260748230072E7C2 /* SceneDelegate.swift in Sources */,
+				A5B5884C260CD7F20072E7C2 /* UIImage+Extension.swift in Sources */,
 				A5B58845260B75BA0072E7C2 /* UIView+Extension.swift in Sources */,
 				A5B58848260B76720072E7C2 /* UITableView+Extension.swift in Sources */,
 			);
