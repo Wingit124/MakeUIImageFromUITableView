@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func didFinishSaving(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer) {
-        //保存状況をアラートで表示
+        //保存状況をプリント
         if error != nil {
             print("失敗")
         } else {
