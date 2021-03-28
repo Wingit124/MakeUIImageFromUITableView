@@ -21,7 +21,7 @@ extension UITableView {
         //テーブルの状態を変更
         let originalOffsetY = contentOffset.y
         isScrollEnabled = false
-        scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        contentOffset.y = 0
         //キャプチャされた画像が入ってくる
         var captureImages: [UIImage] = []
         //コンテンツの高さ分スクロールを繰り返してキャプチャする
