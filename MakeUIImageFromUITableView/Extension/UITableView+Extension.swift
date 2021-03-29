@@ -27,7 +27,7 @@ extension UITableView {
         let originalState = OriginalState(contentOffset: contentOffset,
                                           isUserInteractionEnabled: isUserInteractionEnabled,
                                           showsVerticalScrollIndicator: showsVerticalScrollIndicator)
-        //スクリーンショット用に状態を変更
+        //キャプチャ用に状態を変更
         contentOffset.y = 0
         isUserInteractionEnabled = false
         showsVerticalScrollIndicator = false

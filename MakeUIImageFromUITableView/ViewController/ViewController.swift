@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
+            tableView.backgroundColor = .secondarySystemBackground
         }
     }
     
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func tapSave(_ sender: Any) {
+    @IBAction func tapSave(_ sender: UIBarButtonItem) {
         guard let image = tableView.contentImage else { return }
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(didFinishSaving(_:didFinishSavingWithError:contextInfo:)), nil)
     }
@@ -38,12 +39,13 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return 30
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "\(indexPath.row + 1)"
+        cell.backgroundColor = .clear
         return cell
     }
 }
